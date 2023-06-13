@@ -1,0 +1,34 @@
+<app-core>
+    <div class="section search-result-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading">Se connecter</div>
+                </div>
+            </div>
+            <div class="row">
+                <form class="col-md-5" (ngSubmit)="onSubmit()" [formGroup]="checkoutForm">
+                    <div class="alert alert-danger" *ngIf="credentialError">
+                        Nom utilisateur ou mot de passe incorrect
+                    </div>
+                    <div class="form-group">
+                       <label>Nom utilisateur</label>
+                       <input class="form-control" formControlName="username" type="text" />
+                       <div *ngIf="errors.username" class="text-danger"><small>{{errors.username}}</small></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input class="form-control" formControlName="password"  type="password"/>
+                        <div *ngIf="errors.password" class="text-danger"><small>{{errors.password}}</small></div>
+                    </div>
+                    <div *ngIf="isLoading" class="spinner-border" role="status">
+                       
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">Se connecter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</app-core>
